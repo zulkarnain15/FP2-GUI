@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+  <title>Rain Prediction</title>
+</head>
+<body background="{{url_for('static', filename='img/dust.png')}}">
+  <h1 class="title">Prediksi apakah besok hujan berdasarkan cuaca hari ini</h1>
+  <div class="predict-form">
+    <p class="sub-title">
+      Prediksi <b>HUJAN</b> diberbagai daerah di Australia.
+    </p>
+    <form id="contact" action="{{ url_for('predict') }}" method="POST">
+      <fieldset>
+        <input type="text" name="maxtemp" placeholder="Ketikkan Max Temperature" tabindex="1" required autofocus />
+      </fieldset>
+      <fieldset>
+        <input type="text" name="rainfall" placeholder="Ketikkan Rainfall (in mm)" tabindex="2" required >
+      </fieldset>
+      <fieldset>
+        <input type="text" name="sunshine" placeholder="Ketikkan Sunshine hour" tabindex="3" required >
+      </fieldset>
+      <fieldset>
+        <input type="text" name="windspeed" placeholder="Ketikkan Wind Speed" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input type="text" name="humidity9" placeholder="Ketikkan Humidity percentation at 9 AM" tabindex="5" required>
+      </fieldset>
+      <fieldset>
+        <input type="text" name="humidity3" placeholder="Ketikkan Humidity percentation at 3 PM" tabindex="6" required>
+      </fieldset>
+      <fieldset>
+        <input type="text" name="pressure" placeholder="Ketikkan Pressure at 9 AM" tabindex="7" required>
+      </fieldset>
+      <fieldset>
+        <input type="text" name="cloud" placeholder="Ketikkan Cloud persentation at 3 PM" tabindex="8" required>
+      </fieldset>
+      <fieldset>
+        <input type="text" name="month" placeholder="Ketikkan Month" tabindex="9" required>
+      </fieldset>
+      <fieldset>
+        <select name="raintoday" required>
+          <option value="" disabled selected>Apakah hari ini hujan?</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <select name="location" required>
+          <option value="" disabled selected>Silahkan pilih lokasi</option>
+          <option value="0">Adelaide</option>
+          <option value="1">Albury</option>
+          <option value="2">AliceSprings</option>
+          <option value="3">Badgerys Creek</option>
+          <option value="4">Ballarat</option>
+          <option value="5">Bendigo</option>
+          <option value="6">Brisbane</option>
+          <option value="7">Cairns</option>
+          <option value="8">Canberra</option>
+          <option value="9">Cobar</option>
+          <option value="10">Coffs Harbour</option>
+          <option value="11">Dartmoor</option>
+          <option value="12">Darwin</option>
+          <option value="13">Gold Coast</option>
+          <option value="14">Hobart</option>
+          <option value="15">Katherine</option>
+          <option value="16">Launceston</option>
+          <option value="17">Melbourne</option>
+          <option value="18">Melbourne Airport</option>
+          <option value="19">Mildura</option>
+          <option value="20">Moree</option>
+          <option value="21">Mount Gambier</option>
+          <option value="22">Mount Ginini</option>
+          <option value="23">Nhil</option>
+          <option value="24">Norah Head</option>
+          <option value="25">Norfolk Island</option>
+          <option value="26">Nuriootpa</option>
+          <option value="27">Pearce RAAF</option>
+          <option value="28">Penrith</option>
+          <option value="29">Perth</option>
+          <option value="30">Perth Airport</option>
+          <option value="31">Portland</option>
+          <option value="32">Richmond</option>
+          <option value="33">Sale</option>
+          <option value="34">Salmon Gums</option>
+          <option value="35">Sydney</option>
+          <option value="36">Sydney Airport</option>
+          <option value="37">Townsville</option>
+          <option value="38">Tuggeranong</option>
+          <option value="39">Uluru</option>
+          <option value="40">Wagga Wagga</option>
+          <option value="41">Walpole</option>
+          <option value="42">Watsonia</option>
+          <option value="43">Williamtown</option>
+          <option value="44">Witchcliffe</option>
+          <option value="45">Wollongong</option>
+          <option value="46">Woomera</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Prediksi</button>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>

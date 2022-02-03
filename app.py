@@ -10,7 +10,7 @@ scaler_ = pickle.load(open('models/regresi.pkl', 'rb'))
 
 @app.route("/")
 def home():
-    return render_template("main.html")
+    return render_template("index.html")
 
 @app.route("/predict", methods=['POST'])
 def predict():
@@ -53,18 +53,8 @@ def predict():
         else:
             val = np.append(val, 0)
 
-    print(val)
-
     val_predict = model.predict([val])
-
-    if val_predict == 1:
-        output = 'Prediksi bernilai 1, maka akan diprediksi besok turun hujan'
-    elif val_predict == 0:
-        output = 'Prediksi bernilai 0, maka akan diprediksi besok TIDAK turun hujan'
-    else:
-        output = 'Prediksi tidak valid'
-
-    return render_template('main.html', prediction_text='{}'.format(output))
+    return render_template('predict.html', prediction=val_predict)
 
 if __name__ == "__main__":
     app.run(debug=True)
